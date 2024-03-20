@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<title>Vai se fuder</title>
+<style>
+  body {
+    background-color: black;
+    margin: 0;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .emoji {
+    position: absolute;
+    font-size: 100px;
+    animation: cair 5s linear infinite;
+  }
+  .texto-centralizado {
+    z-index: 1;
+    font-size: 50px;
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    font-family: Comic Sans MS;
+  }
+  @keyframes cair {
+    0% { top: -50px; }
+    100% { top: 100vh; }
+  }
+</style>
+</head>
+<body>
+<div class="texto-centralizado">vai se fuder</div>
+<div class="emoji" style="left:10%">🖕</div>
+<div class="emoji" style="left:30%">🖕</div>
+<div class="emoji" style="left:50%">🖕</div>
+<div class="emoji" style="left:70%">🖕</div>
+<div class="emoji" style="left:90%">🖕</div>
+<script>
+
+  function adicionarEmojis() {
+    const emojis = ['🖕', '🖕', '🖕', '🖕', '🖕'];
+    const emoji = document.createElement('div');
+    emoji.classList.add('emoji');
+    emoji.style.left = Math.random() * 100 + '%';
+    emoji.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+    document.body.appendChild(emoji);
+    
+    setTimeout(() => {
+      document.body.removeChild(emoji);
+    }, 5000);
+  }
+  setInterval(adicionarEmojis, 1000);
+</script>
+
+</body>
+
+</html>
